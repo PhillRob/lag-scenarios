@@ -1,7 +1,7 @@
 
-infile = "NZ-species-fre-input.csv" # Frequency input data
+infile = "NZ-species-fre-input.csv" #Frequency input data
 infile2 = "NZ-species-annual-fre-input.csv"    # Annual number of specimens collected data
-outfile = 'NZ_Species_Output.csv'   # Output file
+outfile = 'NZ_Species_Output.csv'   #Output file
 
 ## Read the data
 
@@ -33,10 +33,11 @@ source("utilities.R")
 out0 = lagfit(data, ydata, zeros=TRUE) # With all zeros
 out1 = lagfit(data, ydata, zeros=FALSE) # Without zeros
 
-names(out1)[3:7] = paste(names(out1)[3:7],"_nonzero") #Add Nonzero to the labels of nonzero fits
+names(out1)[2:6] = paste(names(out1)[3:7],"_nonzero") #Add Nonzero to the labels of nonzero fits
 
 # Merge all of them in a bigger data frame to write
 
-outdata = merge(out0, out1, by=c("Island","Species"))
+outdata = merge(out0, out1, by=c("Species"))
 
 write.csv(outdata,file=outfile,quote=FALSE, row.names=FALSE)
+
