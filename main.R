@@ -1,7 +1,7 @@
 
-infile = "NZ-species-fre-input.csv" # Frequency input data
+infile = "NZ-species-fre-input.csv" #Frequency input data
 infile2 = "NZ-species-annual-fre-input.csv"    # Annual number of specimens collected data
-outfile = 'NZ_Species_Output.csv'   # Output file
+outfile = 'NZ_Species_Output.csv'   #Output file
 
 ## Read the data
 
@@ -15,7 +15,7 @@ names(data)[5] = "Frequency"  # 5 th column of the input contains Frequncy
 names(data)[7] = "Specimens"  # 7th column of the input file contains no_specimens
 data$Species = as.character(data$Species)
 
-## Read the data where only specimens are there but no frequncy count
+## Read the data where only specimens are there but no frequency count
 
 ydata = read.csv(infile2, header=T)
 names(ydata)[2] = "Year"
@@ -37,6 +37,7 @@ names(out1)[2:6] = paste(names(out1)[3:7],"_nonzero") #Add Nonzero to the labels
 
 # Merge all of them in a bigger data frame to write
 
-outdata = merge(out0, out1, by = c("Species"))
+outdata = merge(out0, out1, by=c("Species"))
 
-write.csv(outdata, file = outfile, quote = FALSE, row.names = FALSE)
+write.csv(outdata,file=outfile,quote=FALSE, row.names=FALSE)
+
