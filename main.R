@@ -1,10 +1,9 @@
 
-infile = "NZ-species-fre-input.csv" #Frequency input data
+infile = "NZ-species-fre-input.csv" # Frequency input data
 infile2 = "NZ-species-annual-fre-input.csv"    # Annual number of specimens collected data
 outfile = 'NZ_Species_Output.csv'   #Output file
 
 ## Read the data
-
 data = read.csv(infile, header=T)
 
 # Prepare the data for the main part of the code
